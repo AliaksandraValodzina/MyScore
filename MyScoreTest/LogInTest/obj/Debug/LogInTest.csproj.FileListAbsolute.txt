@@ -27,3 +27,4 @@ C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\M
 C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\LogInTest\bin\Debug\WebDriver.Support.xml
 C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\LogInTest\obj\Debug\LogInTest.dll
 C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\LogInTest\obj\Debug\LogInTest.pdb
+C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\LogInTest\obj\Debug\LogInTest.csprojResolveAssemblyReference.cache

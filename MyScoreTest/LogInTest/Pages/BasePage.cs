@@ -22,6 +22,17 @@ namespace LogInTest.Pages
 
         public void Quit() => driver.Quit();
 
-        public void SwitchToLast() => driver.SwitchTo().Window(driver.WindowHandles.Last());
+        public BasePage SwitchToLast()
+        {
+            driver.SwitchTo().Window(driver.WindowHandles.Last());
+            return this;
+        }
+
+        public BasePage SwitchToLastAndClose()
+        {
+            driver.SwitchTo().Window(driver.WindowHandles.Last()).Close();
+            SwitchToLast();
+            return this;
+        }
     }
 }

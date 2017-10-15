@@ -1,13 +1,13 @@
-﻿using OpenQA.Selenium;
-using System.Linq;
+﻿using System.Linq;
+using LogInTest.Pages.MatchPages;
 
 namespace LogInTest.Pages.SignUpPage
 {
     public partial class MyScoreSoccerPage : BasePage
     {
-        public void NavigateToTheMatch(string commandName)
+        public MatchPage NavigateToTheMatch(string commandName)
         {
-            HomeTeamNames.FirstOrDefault(x => x.Text.Equals(commandName)).Click();
+            return HomeTeamNames.FirstOrDefault(x => x.Text.Equals(commandName)).Click<MatchPage>();
         }
 
         public void SelectAllMatchesOnThePage()

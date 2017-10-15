@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace LogInTest.Pages.MatchPage
+namespace LogInTest.Pages.MatchPages
 {
     public partial class MatchPage : BasePage
     {

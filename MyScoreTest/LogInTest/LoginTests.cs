@@ -33,7 +33,7 @@ namespace LogInTest
             MyScoreSoccerPage.NavigateToTheMatch("Брешия (Ж)");
             MyScoreSoccerPage.SwitchToLast();
 
-            MatchPage matchPage = new MatchPage(driver);
+            MatchPage matchPage = new MatchPage();
             var statisticSection = matchPage.LiveCentreSection.ClickToStatisticTab();
             var shotsHome = statisticSection.GetShotsOnGoalText(CommandType.Home);
             var shotsAway = statisticSection.GetShotsOnGoalText(CommandType.Away);
@@ -43,23 +43,23 @@ namespace LogInTest
         [TestMethod]
         public void SelectAllCheckboxes()
         {
-            var signUpPage = new MyScoreSoccerPage();
-            signUpPage.Navigate();
-            signUpPage.LiveTub.Click();
-            signUpPage.SelectAllMatchesOnThePage();
+            MyScoreSoccerPage.Navigate();
+            MyScoreSoccerPage.LiveTub.Click();
+            MyScoreSoccerPage.SwitchToLastAndClose();
+            MyScoreSoccerPage.SelectAllMatchesOnThePage();
         }
 
         [TestMethod]
         public void GetCoef()
         {
-            var name = "Эйбар";
-            var signUpPage = new MyScoreSoccerPage();
-            signUpPage.Navigate();
-            signUpPage.NavigateToTheMatch(name);
-            driver.SwitchTo().Window(driver.WindowHandles.Last());
+            var name = "Брайтон";
+            MyScoreSoccerPage.Navigate();
+            MyScoreSoccerPage.NavigateToTheMatch(name);
+            MatchPage matchPage = MyScoreSoccerPage.SwitchToLast();
 
-            MatchPage matchPage = new MatchPage(driver);
+            /*
             var x1 = matchPage.LiveCentreSection.MatchReviewSection.DifferenceInLossesOfLeadingPlayers();
+            */
 
             var tableTub = matchPage.ClickToTableTab();
             tableTub.X2(name);
