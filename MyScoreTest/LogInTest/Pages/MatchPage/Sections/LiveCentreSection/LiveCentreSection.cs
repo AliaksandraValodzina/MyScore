@@ -6,17 +6,14 @@ namespace LogInTest.Pages.Sections.ConnectWithSection
     /// <summary>
     /// LiveCentre Section.
     /// </summary>
-    public partial class LiveCentreSection
+    public partial class LiveCentreSection : BasePage
     {
-        private readonly IWebDriver driver;
-
         /// <summary>
         /// LiveCentreSection constructor.
         /// </summary>
-        public LiveCentreSection(IWebDriver browser)
+        public LiveCentreSection()
         {
-            driver = browser;
-            MatchReviewSection = new MatchReviewSection(driver);
+            MatchReviewSection = new MatchReviewSection();
         }
 
         public MatchReviewSection MatchReviewSection { get; private set; }
@@ -27,7 +24,7 @@ namespace LogInTest.Pages.Sections.ConnectWithSection
         public StatisticSection ClickToStatisticTab()
         {
             StatisticTab.Click();
-            return new StatisticSection(driver);
+            return new StatisticSection();
         }
     }
 }

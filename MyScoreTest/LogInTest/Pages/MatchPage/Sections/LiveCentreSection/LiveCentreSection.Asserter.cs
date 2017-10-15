@@ -2,7 +2,7 @@
 
 namespace LogInTest.Pages.Sections.ConnectWithSection
 {
-    public partial class LiveCentreSection
+    public partial class LiveCentreSection : BasePage
     {
         /// <summary>
         /// Check that static tab is visible

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LogInTest.Pages.MatchPage.Sections.StatisticSection
 {
-    public partial class MatchReviewSection
+    public partial class MatchReviewSection : BasePage
     {
         #region Before match elements
 

@@ -1,13 +1,8 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LogInTest.Pages.MatchPage
 {
-    public partial class MatchPage
+    public partial class MatchPage : BasePage
     {
         /// <summary>
         /// Table Tab element.

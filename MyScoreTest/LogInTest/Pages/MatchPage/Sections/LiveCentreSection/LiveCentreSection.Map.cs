@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace LogInTest.Pages.Sections.ConnectWithSection
 {
-    public partial class LiveCentreSection
+    public partial class LiveCentreSection : BasePage
     {
         /// <summary>
         /// Statistic Tab element.

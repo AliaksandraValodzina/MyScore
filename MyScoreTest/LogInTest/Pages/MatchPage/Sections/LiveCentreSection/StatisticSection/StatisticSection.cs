@@ -8,18 +8,8 @@ namespace LogInTest.Pages.MatchPage.Sections.StatisticSection
     /// <summary>
     /// StatisticSection class.
     /// </summary>
-    public partial class StatisticSection
+    public partial class StatisticSection : BasePage
     {
-        private readonly IWebDriver driver;
-
-        /// <summary>
-        /// StatisticSection constuctor.
-        /// </summary>
-        public StatisticSection(IWebDriver browser)
-        {
-            driver = browser;
-        }
-
         /// <summary>
         /// Get Shots On Goal by command 
         /// </summary>

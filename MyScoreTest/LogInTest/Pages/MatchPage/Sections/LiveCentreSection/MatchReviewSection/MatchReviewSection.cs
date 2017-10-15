@@ -3,15 +3,8 @@ using System.Linq;
 
 namespace LogInTest.Pages.MatchPage.Sections.StatisticSection
 {
-    public partial class MatchReviewSection
+    public partial class MatchReviewSection : BasePage
     {
-        private readonly IWebDriver driver;
-
-        public MatchReviewSection(IWebDriver browser)
-        {
-            driver = browser;
-        }
-
         /// <summary>
         /// Get difference in losses of leading players.
         /// X1

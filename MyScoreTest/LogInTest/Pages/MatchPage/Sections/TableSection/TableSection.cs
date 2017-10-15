@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-using LogInTest.Pages.MatchPage.Sections.TableSection.CommandRowSection;
+using System.Linq;
 
 namespace LogInTest.Pages.MatchPage.Sections.TableSection
 {
@@ -8,14 +8,23 @@ namespace LogInTest.Pages.MatchPage.Sections.TableSection
         private readonly IWebDriver driver;
 
         /// <summary>
-        /// LiveCentreSection constructor.
+        /// TableSection constructor.
         /// </summary>
         public TableSection(IWebDriver browser)
         {
             driver = browser;
-            CommandRow = new CommandRow(driver);
         }
 
-        public CommandRow CommandRow { get; private set; }
+        /// <summary>
+        /// Navigate to statistic tab.
+        /// </summary>
+        public int X2(string name)
+        {
+            var rr = TableRows.Select(x => x.FindElement(By.CssSelector(".team_name_span a")));
+            var row = rr.First(x => x.Text.Equals(name));
+            var list = row.FindElements(By.CssSelector(".form-bg"));
+
+            return 1;
+        }
     }
 }

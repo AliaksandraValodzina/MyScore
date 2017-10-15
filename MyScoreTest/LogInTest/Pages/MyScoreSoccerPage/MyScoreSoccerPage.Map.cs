@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace LogInTest.Pages.SignUpPage
 {
-    public partial class MyScoreSoccerPage
+    public partial class MyScoreSoccerPage : BasePage
     {
         public IWebElement LiveTub => driver.FindElement(By.CssSelector(".ifmenu-live span a"));
 

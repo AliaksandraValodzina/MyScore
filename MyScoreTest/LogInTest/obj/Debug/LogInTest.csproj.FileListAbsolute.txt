@@ -18,3 +18,12 @@ C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScoreTe
 C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScoreTest\LogInTest\obj\Debug\LogInTest.csprojResolveAssemblyReference.cache
 C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScoreTest\LogInTest\obj\Debug\LogInTest.dll
 C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScoreTest\LogInTest\obj\Debug\LogInTest.pdb
+C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\LogInTest\bin\Debug\LogInTest.dll
+C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\LogInTest\bin\Debug\LogInTest.pdb
+C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\LogInTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\LogInTest\bin\Debug\WebDriver.dll
+C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\LogInTest\bin\Debug\WebDriver.Support.dll
+C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\LogInTest\bin\Debug\WebDriver.xml
+C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\LogInTest\bin\Debug\WebDriver.Support.xml
+C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\LogInTest\obj\Debug\LogInTest.dll
+C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\LogInTest\obj\Debug\LogInTest.pdb

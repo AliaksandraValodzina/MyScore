@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LogInTest.Pages.MatchPage.Sections.StatisticSection
 {
-    public partial class StatisticSection
+    public partial class StatisticSection : BasePage
     {
         /// <summary>
         /// Shots On Goal Home Element. 

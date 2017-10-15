@@ -1,18 +1,25 @@
-﻿using LogInTest.Pages.Sections.ConnectWithSection;
+﻿using LogInTest.Pages.MatchPage.Sections.TableSection;
+using LogInTest.Pages.Sections.ConnectWithSection;
 using OpenQA.Selenium;
 
-namespace LogInTest.Pages.LoginPage
+namespace LogInTest.Pages.MatchPage
 {
-    public partial class MatchPage
+    public partial class MatchPage : BasePage
     {
-        private readonly IWebDriver driver;
-
         public MatchPage(IWebDriver browser)
         {
-            driver = browser;
-            LiveCentreSection = new LiveCentreSection(driver);
+            LiveCentreSection = new LiveCentreSection();
         }
 
         public LiveCentreSection LiveCentreSection { get; private set; }
+
+        /// <summary>
+        /// Navigate to table tab.
+        /// </summary>
+        public TableSection ClickToTableTab()
+        {
+            TableTab.Click();
+            return new TableSection(driver);
+        }
     }
 }

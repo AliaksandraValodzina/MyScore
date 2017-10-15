@@ -1,11 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using LogInTest.Pages.LoginPage;
 using LogInTest.Pages.SignUpPage;
-using OpenQA.Selenium.Chrome;
 using System.Linq;
 using LogInTest.Enum;
+using LogInTest.Pages.MatchPage;
 
 namespace LogInTest
 {
@@ -13,27 +12,26 @@ namespace LogInTest
     public class LoginTests
     {
         private IWebDriver driver;
+        private MyScoreSoccerPage MyScoreSoccerPage;
+
         [TestInitialize]
-        public void SetupTest()
+        public void TestInitialize()
         {
-            ChromeDriverService service = ChromeDriverService.CreateDefaultService(@"C:\Users\Volodin\Documents\Visual Studio 2015\Projects\LogInTest\packages", "chromedriver.exe");
-            driver = new ChromeDriver();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
+            MyScoreSoccerPage = new MyScoreSoccerPage();
         }
 
         [TestCleanup]
         public void TeardownTest()
         {
-            driver.Quit();
+            MyScoreSoccerPage.Quit();
         }
 
         [TestMethod]
         public void GetShotsForCommandMatch()
         {
-            var signUpPage = new MyScoreSoccerPage(driver);
-            signUpPage.Navigate();
-            signUpPage.NavigateToTheMatch("Брешия (Ж)");
-            driver.SwitchTo().Window(driver.WindowHandles.Last());
+            MyScoreSoccerPage.Navigate();
+            MyScoreSoccerPage.NavigateToTheMatch("Брешия (Ж)");
+            MyScoreSoccerPage.SwitchToLast();
 
             MatchPage matchPage = new MatchPage(driver);
             var statisticSection = matchPage.LiveCentreSection.ClickToStatisticTab();
@@ -45,7 +43,7 @@ namespace LogInTest
         [TestMethod]
         public void SelectAllCheckboxes()
         {
-            var signUpPage = new MyScoreSoccerPage(driver);
+            var signUpPage = new MyScoreSoccerPage();
             signUpPage.Navigate();
             signUpPage.LiveTub.Click();
             signUpPage.SelectAllMatchesOnThePage();
@@ -54,13 +52,17 @@ namespace LogInTest
         [TestMethod]
         public void GetCoef()
         {
-            var signUpPage = new MyScoreSoccerPage(driver);
+            var name = "Эйбар";
+            var signUpPage = new MyScoreSoccerPage();
             signUpPage.Navigate();
-            signUpPage.NavigateToTheMatch("Ливерпуль");
+            signUpPage.NavigateToTheMatch(name);
             driver.SwitchTo().Window(driver.WindowHandles.Last());
 
             MatchPage matchPage = new MatchPage(driver);
             var x1 = matchPage.LiveCentreSection.MatchReviewSection.DifferenceInLossesOfLeadingPlayers();
+
+            var tableTub = matchPage.ClickToTableTab();
+            tableTub.X2(name);
         }
     }
 }
