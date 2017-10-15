@@ -33,7 +33,7 @@ namespace LogInTest
         public void GetShotsForCommandMatch()
         {
             MyScoreSoccerPage.Navigate();
-            MyScoreSoccerPage.NavigateToTheMatch("Брешия (Ж)");
+            MyScoreSoccerPage.NavigateToTheMatch("Малага");
             MyScoreSoccerPage.SwitchToLast();
 
             MatchPage matchPage = new MatchPage();
