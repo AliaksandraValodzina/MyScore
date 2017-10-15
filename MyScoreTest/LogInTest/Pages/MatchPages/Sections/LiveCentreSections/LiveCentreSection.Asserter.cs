@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace LogInTest.Pages.Sections.ConnectWithSection
+namespace LogInTest.Pages.MatchPages.Sections.LiveCentreSections
 {
     public partial class LiveCentreSection : BasePage
     {

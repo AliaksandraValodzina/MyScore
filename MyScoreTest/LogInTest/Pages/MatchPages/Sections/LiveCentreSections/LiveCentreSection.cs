@@ -1,7 +1,6 @@
-﻿using LogInTest.Pages.MatchPage.Sections.StatisticSection;
-using OpenQA.Selenium;
+﻿using LogInTest.Pages.MatchPages.Sections.StatisticSections;
 
-namespace LogInTest.Pages.Sections.ConnectWithSection
+namespace LogInTest.Pages.MatchPages.Sections.LiveCentreSections
 {
     /// <summary>
     /// LiveCentre Section.

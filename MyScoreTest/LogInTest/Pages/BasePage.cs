@@ -13,8 +13,12 @@ namespace LogInTest.Pages
 
         public BasePage()
         {
-            DriverSetup driverSetup = new DriverSetup();
-            driver = driverSetup.getDriver();
+            PageFactory.InitElements(driver, this);
+        }
+
+        public BasePage(IWebDriver driver)
+        {
+            this.driver = driver;
             PageFactory.InitElements(driver, this);
         }
 
@@ -22,10 +26,9 @@ namespace LogInTest.Pages
 
         public void Quit() => driver.Quit();
 
-        public BasePage SwitchToLast()
+        public void SwitchToLast()
         {
             driver.SwitchTo().Window(driver.WindowHandles.Last());
-            return this;
         }
 
         public BasePage SwitchToLastAndClose()

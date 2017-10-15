@@ -1,11 +1,7 @@
 ﻿using OpenQA.Selenium;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace LogInTest.Pages.MatchPage.Sections.StatisticSection
+namespace LogInTest.Pages.MatchPages.Sections.StatisticSections
 {
     public partial class MatchReviewSection : BasePage
     {

@@ -1,9 +1,7 @@
 ﻿using LogInTest.Enum;
-using OpenQA.Selenium;
-using System;
 using System.Collections.Generic;
 
-namespace LogInTest.Pages.MatchPage.Sections.StatisticSection
+namespace LogInTest.Pages.MatchPages.Sections.StatisticSections
 {
     /// <summary>
     /// StatisticSection class.

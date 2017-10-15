@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System.Linq;
 
-namespace LogInTest.Pages.MatchPage.Sections.TableSection
+namespace LogInTest.Pages.MatchPages.Sections.TableSection
 {
     public partial class TableSection
     {

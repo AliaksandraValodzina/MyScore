@@ -4,7 +4,8 @@ using OpenQA.Selenium;
 using LogInTest.Pages.SignUpPage;
 using System.Linq;
 using LogInTest.Enum;
-using LogInTest.Pages.MatchPage;
+using LogInTest.Pages.MatchPages;
+using LogInTest.Utils.Driver;
 
 namespace LogInTest
 {
@@ -17,7 +18,9 @@ namespace LogInTest
         [TestInitialize]
         public void TestInitialize()
         {
-            MyScoreSoccerPage = new MyScoreSoccerPage();
+            DriverSetup driverSetup = new DriverSetup();
+            driver = driverSetup.getDriver();
+            MyScoreSoccerPage = new MyScoreSoccerPage(driver);
         }
 
         [TestCleanup]
@@ -54,8 +57,8 @@ namespace LogInTest
         {
             var name = "Брайтон";
             MyScoreSoccerPage.Navigate();
-            MyScoreSoccerPage.NavigateToTheMatch(name);
-            MatchPage matchPage = MyScoreSoccerPage.SwitchToLast();
+            var matchPage = MyScoreSoccerPage.NavigateToTheMatch(name);
+            MyScoreSoccerPage.SwitchToLast();
 
             /*
             var x1 = matchPage.LiveCentreSection.MatchReviewSection.DifferenceInLossesOfLeadingPlayers();

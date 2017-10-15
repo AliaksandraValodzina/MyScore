@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
-using System.Collections.Generic;
 
-namespace LogInTest.Pages.Sections.ConnectWithSection
+namespace LogInTest.Pages.MatchPages.Sections.LiveCentreSections
 {
     public partial class LiveCentreSection : BasePage
     {

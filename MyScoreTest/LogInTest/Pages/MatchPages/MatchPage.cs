@@ -1,5 +1,5 @@
-﻿using LogInTest.Pages.MatchPage.Sections.TableSection;
-using LogInTest.Pages.Sections.ConnectWithSection;
+﻿using LogInTest.Pages.MatchPages.Sections.LiveCentreSections;
+using LogInTest.Pages.MatchPages.Sections.TableSection;
 
 namespace LogInTest.Pages.MatchPages
 {
