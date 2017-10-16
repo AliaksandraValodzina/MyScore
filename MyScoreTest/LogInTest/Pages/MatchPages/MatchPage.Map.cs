@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
 
 namespace LogInTest.Pages.MatchPages
 {
@@ -7,16 +8,19 @@ namespace LogInTest.Pages.MatchPages
         /// <summary>
         /// Table Tab element.
         /// </summary>
-        public IWebElement TableTab => driver.FindElement(By.Id("a-match-standings"));
+        [FindsBy(How = How.CssSelector, Using = "#a-match-standings")]
+        public IWebElement TableTab { get; set; }
 
         /// <summary>
         /// Home Team Name element.
         /// </summary>
-        public IWebElement HomeTeamName => driver.FindElement(By.CssSelector(".tname-home span a"));
+        [FindsBy(How = How.CssSelector, Using = ".tname-home span a")]
+        public IWebElement HomeTeamName { get; set; }
 
         /// <summary>
         /// Away Team Name element.
         /// </summary>
-        public IWebElement AwayTeamName => driver.FindElement(By.CssSelector(".tname-away span a"));
+        [FindsBy(How = How.CssSelector, Using = ".tname-away span a")]
+        public IWebElement AwayTeamName { get; set; }
     }
 }

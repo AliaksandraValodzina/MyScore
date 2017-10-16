@@ -1,17 +1,22 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.Generic;
 
 namespace LogInTest.Pages.SignUpPage
 {
     public partial class MyScoreSoccerPage : BasePage
     {
-        public IWebElement LiveTub => driver.FindElement(By.CssSelector(".ifmenu-live"));
+        [FindsBy(How = How.CssSelector, Using = ".ifmenu-live")]
+        public IWebElement LiveTub { get; set; }
 
-        public IList<IWebElement> LeagueListsNames => driver.FindElements(By.CssSelector(".table-main .soccer thead .tournament_part"));
+        [FindsBy(How = How.CssSelector, Using = ".table-main .soccer thead .tournament_part")]
+        public IList<IWebElement> LeagueListsNames { get; set; }
 
-        public IList<IWebElement> HomeTeamNames => driver.FindElements(By.CssSelector(".table-main .soccer tbody .team-home"));
+        [FindsBy(How = How.CssSelector, Using = ".table-main .soccer tbody .team-home")]
+        public IList<IWebElement> HomeTeamNames { get; set; }
 
-        public IList<IWebElement> AwayTeamNames => driver.FindElements(By.CssSelector(".table-main .soccer tbody .team-away"));
+        [FindsBy(How = How.CssSelector, Using = ".table-main .soccer tbody .team-away")]
+        public IList<IWebElement> AwayTeamNames { get; set; }
 
         public IList<IWebElement> LeagueCheckbox => driver.FindElements(By.CssSelector(".head_aa .icons span"));
     }

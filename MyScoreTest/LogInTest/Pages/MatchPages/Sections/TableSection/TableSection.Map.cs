@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,6 +10,7 @@ namespace LogInTest.Pages.MatchPages.Sections.TableSection
         /// <summary>
         /// Table Row element.
         /// </summary>
-        public IList<IWebElement> TableRows => driver.FindElements(By.Id(".stats-table-container tbody tr"));
+        [FindsBy(How = How.CssSelector, Using = ".stats-table-container tbody tr")]
+        public IList<IWebElement> TableRows { get; set; }
     }
 }

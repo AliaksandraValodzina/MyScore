@@ -1,4 +1,6 @@
 ﻿using LogInTest.Pages.MatchPages.Sections.StatisticSections;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
 
 namespace LogInTest.Pages.MatchPages.Sections.LiveCentreSections
 {
@@ -10,9 +12,10 @@ namespace LogInTest.Pages.MatchPages.Sections.LiveCentreSections
         /// <summary>
         /// LiveCentreSection constructor.
         /// </summary>
-        public LiveCentreSection()
+        public LiveCentreSection(IWebDriver driver) : base(driver)
         {
-            MatchReviewSection = new MatchReviewSection();
+            PageFactory.InitElements(driver, this);
+            MatchReviewSection = new MatchReviewSection(driver);
         }
 
         public MatchReviewSection MatchReviewSection { get; private set; }
@@ -23,7 +26,7 @@ namespace LogInTest.Pages.MatchPages.Sections.LiveCentreSections
         public StatisticSection ClickToStatisticTab()
         {
             StatisticTab.Click();
-            return new StatisticSection();
+            return new StatisticSection(driver);
         }
     }
 }

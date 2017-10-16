@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.Generic;
 
 namespace LogInTest.Pages.MatchPages.Sections.StatisticSections
@@ -10,12 +11,15 @@ namespace LogInTest.Pages.MatchPages.Sections.StatisticSections
         /// <summary>
         /// Missing Players Names Home element.
         /// </summary>
-        public IList<IWebElement> MissingPlayersNamesHome => driver.FindElements(By.CssSelector("#missing-players .fl .name a"));
+        [FindsBy(How = How.CssSelector, Using = "#missing-players .fl .name a")]
+        public IList<IWebElement> MissingPlayersNamesHome { get; set; }
 
         /// <summary>
         /// Missing Players Names Away element.
         /// </summary>
-        public IList<IWebElement> MissingPlayersNamesAway => driver.FindElements(By.CssSelector("#missing-players .fr .name a"));
+        [FindsBy(How = How.CssSelector, Using = "#missing-players .fr .name a")]
+        public IList<IWebElement> MissingPlayersNamesAway { get; set; }
+        
         #endregion
     }
 }

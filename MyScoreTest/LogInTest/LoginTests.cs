@@ -6,6 +6,8 @@ using System.Linq;
 using LogInTest.Enum;
 using LogInTest.Pages.MatchPages;
 using LogInTest.Utils.Driver;
+using LogInTest.Pages.MatchPages.Sections.TableSection;
+using LogInTest.Pages;
 
 namespace LogInTest
 {
@@ -33,10 +35,10 @@ namespace LogInTest
         public void GetShotsForCommandMatch()
         {
             MyScoreSoccerPage.Navigate();
-            MyScoreSoccerPage.NavigateToTheMatch("Малага");
+            MyScoreSoccerPage.NavigateToTheMatch("Гомель");
             MyScoreSoccerPage.SwitchToLast();
 
-            MatchPage matchPage = new MatchPage();
+            MatchPage matchPage = new MatchPage(driver);
             var statisticSection = matchPage.LiveCentreSection.ClickToStatisticTab();
             var shotsHome = statisticSection.GetShotsOnGoalText(CommandType.Home);
             var shotsAway = statisticSection.GetShotsOnGoalText(CommandType.Away);
@@ -55,17 +57,20 @@ namespace LogInTest
         [TestMethod]
         public void GetCoef()
         {
-            var name = "Брайтон";
+            var name = "Гомель";
             MyScoreSoccerPage.Navigate();
             var matchPage = MyScoreSoccerPage.NavigateToTheMatch(name);
-            MyScoreSoccerPage.SwitchToLast();
+            matchPage.SwitchToLast();
 
             /*
             var x1 = matchPage.LiveCentreSection.MatchReviewSection.DifferenceInLossesOfLeadingPlayers();
             */
 
-            var tableTub = matchPage.ClickToTableTab();
-            tableTub.X2(name);
+            //var tableTub = matchPage.ClickToTableTab();
+
+            matchPage.TableTab.Click();
+            var tablePage = new TableSection(driver);
+            tablePage.X2(name);
         }
     }
 }

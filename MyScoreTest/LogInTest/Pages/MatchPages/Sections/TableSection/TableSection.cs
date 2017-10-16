@@ -20,7 +20,8 @@ namespace LogInTest.Pages.MatchPages.Sections.TableSection
         /// </summary>
         public int X2(string name)
         {
-            var rr = TableRows.Select(x => x.FindElement(By.CssSelector(".team_name_span a")));
+            var r = TableRows.ToList();
+            var rr = r.Select(x => x.FindElement(By.CssSelector(".team_name_span a")));
             var row = rr.First(x => x.Text.Equals(name));
             var list = row.FindElements(By.CssSelector(".form-bg"));
 

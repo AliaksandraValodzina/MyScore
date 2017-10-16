@@ -1,4 +1,6 @@
 ﻿using LogInTest.Enum;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.Generic;
 
 namespace LogInTest.Pages.MatchPages.Sections.StatisticSections
@@ -8,6 +10,11 @@ namespace LogInTest.Pages.MatchPages.Sections.StatisticSections
     /// </summary>
     public partial class StatisticSection : BasePage
     {
+        public StatisticSection(IWebDriver driver) : base(driver)
+        {
+            PageFactory.InitElements(driver, this);
+        }
+
         /// <summary>
         /// Get Shots On Goal by command 
         /// </summary>

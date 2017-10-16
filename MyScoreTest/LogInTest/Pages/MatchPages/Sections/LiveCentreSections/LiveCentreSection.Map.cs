@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
 
 namespace LogInTest.Pages.MatchPages.Sections.LiveCentreSections
 {
@@ -7,6 +8,7 @@ namespace LogInTest.Pages.MatchPages.Sections.LiveCentreSections
         /// <summary>
         /// Statistic Tab element.
         /// </summary>
-        public IWebElement StatisticTab => driver.FindElement(By.Id("a-match-statistics"));
+        [FindsBy(How = How.CssSelector, Using = "#a-match-statistics")]
+        public IWebElement StatisticTab { get; set; }
     }
 }

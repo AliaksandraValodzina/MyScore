@@ -11,24 +11,19 @@ namespace LogInTest.Pages
 
         private readonly string _url = @"http://www.myscore.com.ua/";
 
-        public BasePage()
-        {
-            PageFactory.InitElements(driver, this);
-        }
-
         public BasePage(IWebDriver driver)
         {
             this.driver = driver;
-            PageFactory.InitElements(driver, this);
         }
 
         public void Navigate() => driver.Navigate().GoToUrl(_url);
 
         public void Quit() => driver.Quit();
 
-        public void SwitchToLast()
+        public BasePage SwitchToLast()
         {
             driver.SwitchTo().Window(driver.WindowHandles.Last());
+            return this;
         }
 
         public BasePage SwitchToLastAndClose()
