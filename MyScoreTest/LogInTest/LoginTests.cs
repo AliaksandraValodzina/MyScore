@@ -35,10 +35,10 @@ namespace LogInTest
         public void GetShotsForCommandMatch()
         {
             MyScoreSoccerPage.Navigate();
-            MyScoreSoccerPage.NavigateToTheMatch("Гомель");
+            MatchPage matchPage = MyScoreSoccerPage.NavigateToTheMatch("БАТЭ");
             MyScoreSoccerPage.SwitchToLast();
 
-            MatchPage matchPage = new MatchPage(driver);
+            // MatchPage matchPage = new MatchPage(driver);
             var statisticSection = matchPage.LiveCentreSection.ClickToStatisticTab();
             var shotsHome = statisticSection.GetShotsOnGoalText(CommandType.Home);
             var shotsAway = statisticSection.GetShotsOnGoalText(CommandType.Away);

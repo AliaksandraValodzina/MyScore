@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using LogInTest.Utils.Elements;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.Generic;
 
@@ -13,7 +14,7 @@ namespace LogInTest.Pages.SignUpPage
         public IList<IWebElement> LeagueListsNames { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".table-main .soccer tbody .team-home")]
-        public IList<IWebElement> HomeTeamNames { get; set; }
+        public IList<Element> HomeTeamNames { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".table-main .soccer tbody .team-away")]
         public IList<IWebElement> AwayTeamNames { get; set; }

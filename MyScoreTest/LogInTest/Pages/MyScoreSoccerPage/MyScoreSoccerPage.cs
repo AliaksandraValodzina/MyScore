@@ -14,8 +14,7 @@ namespace LogInTest.Pages.SignUpPage
 
         public MatchPage NavigateToTheMatch(string commandName)
         {
-            HomeTeamNames.FirstOrDefault(x => x.Text.Equals(commandName)).Click();
-            return new MatchPage(driver);
+            return HomeTeamNames.FirstOrDefault(x => x.GetText().Equals(commandName)).Click<MatchPage>();
         }
 
         public void SelectAllMatchesOnThePage()
