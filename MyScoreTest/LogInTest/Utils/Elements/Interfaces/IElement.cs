@@ -6,16 +6,6 @@ namespace LogInTest.Utils.Elements
     public interface IElement
     {
         /// <summary>
-        /// Current WebDriver instance
-        /// </summary>
-        /*IWebDriver Driver { get; set; }
-
-        /// <summary>
-        /// By object for this element
-        /// </summary>
-        By By { get; set; }
-
-        /// <summary>
         /// constructor using a by object
         /// </summary>
         /// <param name="driver">IWebDriver object</param>
@@ -39,7 +29,7 @@ namespace LogInTest.Utils.Elements
         /// <param name="iterationDelaySeconds">Seconds to wait inbetween retrying</param>
         /// <returns>the WebElement if found</returns>
         /// <exception cref="NoSuchElementException">if the element is not found</exception>
-        IWebElement WaitForElementExist(this IWebDriver Driver, By by, int timeoutInSeconds = 20, int iterationDelaySeconds = 2);
+        IWebElement WaitForElementExist(IWebDriver Driver, By by, int timeoutInSeconds = 20, int iterationDelaySeconds = 2);
 
         /// <summary>
         /// Find elements within the current element.
@@ -69,6 +59,6 @@ namespace LogInTest.Utils.Elements
         /// Gets the text from the IWebEelement
         /// </summary>
         /// <returns>text property of the IWebElement</returns>
-        string GetText(int timeoutSeconds = 20);*/
+        string GetText(int timeoutSeconds = 20);
     }
 }
