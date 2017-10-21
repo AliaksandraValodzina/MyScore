@@ -5,7 +5,6 @@ using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
-using Microsoft.Practices.Unity;
 
 namespace LogInTest.Utils.Elements
 {
@@ -14,12 +13,12 @@ namespace LogInTest.Utils.Elements
         /// <summary>
         /// Current WebDriver instance
         /// </summary>
-        protected IWebDriver Driver { get; private set; }
+        private IWebDriver Driver { get; set; }
 
         /// <summary>
         /// By object for this element
         /// </summary>
-        public By By { get; set; }
+        private By By { get; set; }
 
         /// <summary>
         /// constructor using a by object
@@ -64,7 +63,7 @@ namespace LogInTest.Utils.Elements
         /// <param name="iterationDelaySeconds">Seconds to wait inbetween retrying</param>
         /// <returns>the WebElement if found</returns>
         /// <exception cref="NoSuchElementException">if the element is not found</exception>
-        public IWebElement WaitForElementExist(this IWebDriver Driver, By by, int timeoutInSeconds = 20, int iterationDelaySeconds = 2)
+        public IWebElement WaitForElementExist(IWebDriver Driver, By by, int timeoutInSeconds = 20, int iterationDelaySeconds = 2)
         {
             try
             {
@@ -100,7 +99,7 @@ namespace LogInTest.Utils.Elements
         public IWebElement FindElement(By childSelector, int waitTimeInSeconds = 20)
         {
             //Chain the current Element's by and the child by
-            var element = WaitForElementExist(Driver, new ByChained(this.By, childSelector), waitTimeInSeconds);
+            var element = WaitForElementExist(Driver, new ByChained(By, childSelector), waitTimeInSeconds);
 
             return element;
         }

@@ -1,13 +1,11 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using LogInTest.Pages.SignUpPage;
-using System.Linq;
 using LogInTest.Enum;
 using LogInTest.Pages.MatchPages;
 using LogInTest.Utils.Driver;
 using LogInTest.Pages.MatchPages.Sections.TableSection;
-using LogInTest.Pages;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LogInTest
 {

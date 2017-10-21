@@ -1,6 +1,4 @@
-﻿using LogInTest.Pages.MatchPages;
-using LogInTest.Utils.Driver;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Linq;
 
@@ -10,14 +8,14 @@ namespace LogInTest.Pages
     {
         protected IWebDriver driver;
 
-        private readonly string _url = @"http://www.myscore.com.ua/";
+        private readonly string url = @"http://www.myscore.com.ua/";
 
         public BasePage(IWebDriver driver)
         {
             this.driver = driver;
         }
 
-        public void Navigate() => driver.Navigate().GoToUrl(_url);
+        public void Navigate() => driver.Navigate().GoToUrl(url);
 
         public void Quit() => driver.Quit();
 

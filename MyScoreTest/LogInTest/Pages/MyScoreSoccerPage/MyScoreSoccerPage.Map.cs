@@ -1,5 +1,4 @@
 ﻿using LogInTest.Utils.Elements;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.Generic;
 
@@ -8,17 +7,20 @@ namespace LogInTest.Pages.SignUpPage
     public partial class MyScoreSoccerPage : BasePage
     {
         [FindsBy(How = How.CssSelector, Using = ".ifmenu-live")]
-        public IWebElement LiveTub { get; set; }
+        public Element LiveTub { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".table-main .soccer thead .tournament_part")]
-        public IList<IWebElement> LeagueListsNames { get; set; }
+        public IList<Element> LeagueListsNames { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".table-main .soccer tbody .team-home")]
         public IList<Element> HomeTeamNames { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".table-main .soccer tbody .team-away")]
-        public IList<IWebElement> AwayTeamNames { get; set; }
+        public IList<Element> AwayTeamNames { get; set; }
 
-        public IList<IWebElement> LeagueCheckbox => driver.FindElements(By.CssSelector(".head_aa .icons span"));
+        [FindsBy(How = How.CssSelector, Using = ".head_aa .icons span")]
+        public IList<Element> LeagueCheckbox { get; set; }
+
+        // public IList<Element> LeagueCheckbox => driver.FindElements(By.CssSelector(".head_aa .icons span"));
     }
 }

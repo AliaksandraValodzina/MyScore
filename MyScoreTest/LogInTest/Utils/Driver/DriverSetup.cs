@@ -1,7 +1,8 @@
-﻿using LogInTest.Utils.Common;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+﻿using OpenQA.Selenium;
+using Microsoft.Practices.Unity;
 using System;
+using OpenQA.Selenium.Chrome;
+using LogInTest.Utils.Common;
 
 namespace LogInTest.Utils.Driver
 {
