@@ -59,8 +59,9 @@ namespace LogInTest
             var name = "Болонья";
             MyScoreSoccerPage.Navigate();
             MyScoreSoccerPage.NavigateToTheMatch(name);
+            
             var matchPage = new MatchPage(driver);
-            matchPage.SwitchToLast();
+            MyScoreSoccerPage.SwitchToLast();
 
             /*
             var x1 = matchPage.LiveCentreSection.MatchReviewSection.DifferenceInLossesOfLeadingPlayers();

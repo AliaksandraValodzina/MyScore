@@ -12,5 +12,7 @@ namespace LogInTest.Pages.MatchPages.Sections.TableSection
         /// </summary>
         [FindsBy(How = How.CssSelector, Using = ".stats-table-container tbody tr")]
         public IList<IWebElement> TableRows { get; set; }
+
+        // participant_name
     }
 }
