@@ -5,7 +5,7 @@ namespace LogInTest.Utils.Elements
 {
     public interface IElement
     {
-        /// <summary>
+        /*/// <summary>
         /// constructor using a by object
         /// </summary>
         /// <param name="driver">IWebDriver object</param>
@@ -59,6 +59,6 @@ namespace LogInTest.Utils.Elements
         /// Gets the text from the IWebEelement
         /// </summary>
         /// <returns>text property of the IWebElement</returns>
-        string GetText(int timeoutSeconds = 20);
+        string GetText(int timeoutSeconds = 20);*/
     }
 }

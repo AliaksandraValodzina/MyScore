@@ -33,7 +33,8 @@ namespace LogInTest
         public void GetShotsForCommandMatch()
         {
             MyScoreSoccerPage.Navigate();
-            MatchPage matchPage = MyScoreSoccerPage.NavigateToTheMatch("БАТЭ");
+            MyScoreSoccerPage.NavigateToTheMatch("Болонья");
+            MatchPage matchPage = new MatchPage(driver);
             MyScoreSoccerPage.SwitchToLast();
 
             // MatchPage matchPage = new MatchPage(driver);
@@ -55,9 +56,10 @@ namespace LogInTest
         [TestMethod]
         public void GetCoef()
         {
-            var name = "Гомель";
+            var name = "Болонья";
             MyScoreSoccerPage.Navigate();
-            var matchPage = MyScoreSoccerPage.NavigateToTheMatch(name);
+            MyScoreSoccerPage.NavigateToTheMatch(name);
+            var matchPage = new MatchPage(driver);
             matchPage.SwitchToLast();
 
             /*

@@ -12,9 +12,9 @@ namespace LogInTest.Pages.SignUpPage
             PageFactory.InitElements(driver, this);
         }
 
-        public MatchPage NavigateToTheMatch(string commandName)
+        public void NavigateToTheMatch(string commandName)
         {
-            return HomeTeamNames.FirstOrDefault(x => x.GetText().Equals(commandName)).Click<MatchPage>();
+            HomeTeamNames.FirstOrDefault(x => x.Text.Equals(commandName)).Click();
         }
 
         public void SelectAllMatchesOnThePage()
