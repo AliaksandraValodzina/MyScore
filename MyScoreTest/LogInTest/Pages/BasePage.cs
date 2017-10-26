@@ -1,5 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
+using System;
 using System.Linq;
 
 namespace LogInTest.Pages
@@ -7,12 +9,14 @@ namespace LogInTest.Pages
     public abstract class BasePage
     {
         protected IWebDriver driver;
+        protected WebDriverWait wait;
 
         private readonly string url = @"http://www.myscore.com.ua/";
 
         public BasePage(IWebDriver driver)
         {
             this.driver = driver;
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(3));
         }
 
         public void Navigate() => driver.Navigate().GoToUrl(url);

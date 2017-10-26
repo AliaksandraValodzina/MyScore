@@ -6,6 +6,7 @@ using LogInTest.Pages.MatchPages;
 using LogInTest.Utils.Driver;
 using LogInTest.Pages.MatchPages.Sections.TableSection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium.Support.UI;
 
 namespace LogInTest
 {
@@ -61,8 +62,12 @@ namespace LogInTest
             MyScoreSoccerPage.NavigateToTheMatch(name);
             
             var matchPage = new MatchPage(driver);
-            MyScoreSoccerPage.SwitchToLast();
 
+            if (MyScoreSoccerPage.LiveTub.Displayed)
+            {
+                MyScoreSoccerPage.SwitchToLast();
+            } 
+            
             matchPage.LiveCentreSection.LineUpsTab.Click();
             var x1 = matchPage.LiveCentreSection.MatchReviewSection.DifferenceInLossesOfLeadingPlayers();
 
@@ -71,6 +76,10 @@ namespace LogInTest
             var x2 = tablePage.X2();
 
             var x3 = tablePage.X3();
+
+            var x4 = tablePage.X4();
+
+            var x5 = tablePage.X5();
         }
     }
 }

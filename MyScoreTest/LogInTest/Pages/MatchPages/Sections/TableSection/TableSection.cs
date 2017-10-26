@@ -97,5 +97,76 @@ namespace LogInTest.Pages.MatchPages.Sections.TableSection
             return Int32.Parse(rank);
         }
 
+        /// <summary>
+        /// X4 coef.
+        /// </summary>
+        public decimal X4()
+        {
+            TableSubtub.Click();
+            wait.Until(drv => drv.FindElement(By.CssSelector("#tabitem-table-home")));
+            HomeSubtub.Click();
+            var homeTotalPoints = TotalPoints(HomeTeamName.Text);
+            var homeGamesNumber = GamesNumber(HomeTeamName.Text);
+
+            AwaySubtub.Click();
+            var awayTotalPoints = TotalPoints(AwayTeamName.Text);
+            var awayGamesNumber = GamesNumber(AwayTeamName.Text);
+
+            var x4 = homeTotalPoints/homeGamesNumber - awayTotalPoints/awayGamesNumber;
+
+            return x4;
+        }
+
+        /// <summary>
+        /// Total Points.
+        /// </summary>
+        public decimal TotalPoints(string name)
+        {
+            var rows = TableRows.ToList();
+            var row = rows.First(x => x.FindElement(By.CssSelector(".team_name_span a")).Text.Equals(name));
+            var points = row.FindElements(By.CssSelector(".goals"))[1].Text;
+
+            return Decimal.Parse(points);
+        }
+
+        /// <summary>
+        /// Games Number.
+        /// </summary>
+        public decimal GamesNumber(string name)
+        {
+            var rows = TableRows.ToList();
+            var row = rows.First(x => x.FindElement(By.CssSelector(".team_name_span a")).Text.Equals(name));
+            var points = row.FindElement(By.CssSelector(".matches_played")).Text;
+
+            return Decimal.Parse(points);
+        }
+
+        /// <summary>
+        /// X5 coef.
+        /// </summary>
+        public decimal X5()
+        {
+            HomeSubtub.Click();
+            var homeDifferenceGoals = DifferenceScoredAndMissedGoals(HomeTeamName.Text);
+
+            AwaySubtub.Click();
+            var awayDifferenceGoals = DifferenceScoredAndMissedGoals(AwayTeamName.Text);
+
+            var x5 = homeDifferenceGoals + awayDifferenceGoals;
+
+            return x5;
+        }
+
+        /// <summary>
+        /// Games Number.
+        /// </summary>
+        public int DifferenceScoredAndMissedGoals(string name)
+        {
+            var rows = TableRows.ToList();
+            var row = rows.First(x => x.FindElement(By.CssSelector(".team_name_span a")).Text.Equals(name));
+            var points = row.FindElements(By.CssSelector(".goals"))[0].Text.Split(':');
+
+            return Int32.Parse(points[0]) - Int32.Parse(points[1]);
+        }
     }
 }

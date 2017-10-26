@@ -25,6 +25,22 @@ namespace LogInTest.Pages.MatchPages.Sections.TableSection
         [FindsBy(How = How.CssSelector, Using = ".stats-table-container tbody tr")]
         public IList<IWebElement> TableRows { get; set; }
 
-        // participant_name
+        /// <summary>
+        /// Table Subtub element.
+        /// </summary>
+        [FindsBy(How = How.CssSelector, Using = "#tabitem-table span a ")]
+        public IWebElement TableSubtub { get; set; }
+
+        /// <summary>
+        /// Table Home Subtub element.
+        /// </summary>
+        [FindsBy(How = How.CssSelector, Using = "#tabitem-table-home span a ")]
+        public IWebElement HomeSubtub { get; set; }
+
+        /// <summary>
+        /// Table Away Subtub element.
+        /// </summary>
+        [FindsBy(How = How.CssSelector, Using = "#tabitem-table-away span a ")]
+        public IWebElement AwaySubtub { get; set; }
     }
 }
