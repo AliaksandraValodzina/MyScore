@@ -8,8 +8,13 @@ namespace LogInTest.Pages.MatchPages.Sections.LiveCentreSections
         /// <summary>
         /// Statistic Tab element.
         /// </summary>
-        /*[FindsBy(How = How.CssSelector, Using = "#a-match-statistics")]
-        public IWebElement StatisticTab { get; set; }*/
-        public IWebElement StatisticTab => driver.FindElement(By.CssSelector("#a-match-statistics"));
+        [FindsBy(How = How.CssSelector, Using = "#a-match-statistics")]
+        public IWebElement StatisticTab { get; set; }
+
+        /// <summary>
+        /// LineUps Tab element.
+        /// </summary>
+        [FindsBy(How = How.CssSelector, Using = "#a-match-lineups")]
+        public IWebElement LineUpsTab { get; set; }
     }
 }

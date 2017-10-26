@@ -56,22 +56,21 @@ namespace LogInTest
         [TestMethod]
         public void GetCoef()
         {
-            var name = "Болонья";
+            var name = "Антверпен";
             MyScoreSoccerPage.Navigate();
             MyScoreSoccerPage.NavigateToTheMatch(name);
             
             var matchPage = new MatchPage(driver);
             MyScoreSoccerPage.SwitchToLast();
 
-            /*
+            matchPage.LiveCentreSection.LineUpsTab.Click();
             var x1 = matchPage.LiveCentreSection.MatchReviewSection.DifferenceInLossesOfLeadingPlayers();
-            */
-
-            //var tableTub = matchPage.ClickToTableTab();
 
             matchPage.TableTab.Click();
             var tablePage = new TableSection(driver);
-            tablePage.X2(name);
+            var x2 = tablePage.X2();
+
+            var x3 = tablePage.X3();
         }
     }
 }

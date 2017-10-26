@@ -22,5 +22,11 @@ namespace LogInTest.Pages.MatchPages
         /// </summary>
         [FindsBy(How = How.CssSelector, Using = ".tname-away span a")]
         public IWebElement AwayTeamName { get; set; }
+
+        /// <summary>
+        /// Clock element.
+        /// </summary>
+        [FindsBy(How = How.CssSelector, Using = "#atomclock")]
+        public IWebElement Clock { get; set; }
     }
 }
