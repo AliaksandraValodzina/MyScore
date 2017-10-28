@@ -57,18 +57,19 @@ namespace LogInTest
         [TestMethod]
         public void GetCoef()
         {
-            var name = "Антверпен";
+            var name = "Манчестер Юнайтед";
             MyScoreSoccerPage.Navigate();
             MyScoreSoccerPage.NavigateToTheMatch(name);
-            
-            var matchPage = new MatchPage(driver);
 
             if (MyScoreSoccerPage.LiveTub.Displayed)
             {
                 MyScoreSoccerPage.SwitchToLast();
-            } 
-            
+            }
+
+            var matchPage = new MatchPage(driver);
+
             matchPage.LiveCentreSection.LineUpsTab.Click();
+            
             var x1 = matchPage.LiveCentreSection.MatchReviewSection.DifferenceInLossesOfLeadingPlayers();
 
             matchPage.TableTab.Click();

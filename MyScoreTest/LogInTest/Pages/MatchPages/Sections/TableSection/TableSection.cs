@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace LogInTest.Pages.MatchPages.Sections.TableSection
@@ -123,7 +122,7 @@ namespace LogInTest.Pages.MatchPages.Sections.TableSection
         public decimal TotalPoints(string name)
         {
             var rows = TableRows.ToList();
-            var row = rows.First(x => x.FindElement(By.CssSelector(".team_name_span a")).Text.Equals(name));
+            var row = rows.First(x => x.FindElement(By.CssSelector(".participant_name  a")).Text.Equals(name));
             var points = row.FindElements(By.CssSelector(".goals"))[1].Text;
 
             return Decimal.Parse(points);
