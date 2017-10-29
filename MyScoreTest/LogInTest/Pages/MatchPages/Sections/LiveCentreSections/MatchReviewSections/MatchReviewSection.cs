@@ -18,8 +18,8 @@ namespace LogInTest.Pages.MatchPages.Sections.StatisticSections
         /// <returns>The difference in losses of leading players.</returns>
         public int DifferenceInLossesOfLeadingPlayers()
         {
-            var homeMissingPlayers = MissingPlayersNamesHome.ToList();
-            var awayMissingPlayers = MissingPlayersNamesAway.ToList();
+            var homeMissingPlayers = MissingPlayersNamesHome.Where(x => x.Enabled).ToList();
+            var awayMissingPlayers = MissingPlayersNamesAway.Where(x => x.Enabled).ToList();
             var difference = homeMissingPlayers.Count() - awayMissingPlayers.Count();
 
             return difference;

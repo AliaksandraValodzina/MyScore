@@ -1,0 +1,6 @@
+C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\FuzzyLogic\bin\Debug\FuzzyLogic.dll
+C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\FuzzyLogic\bin\Debug\FuzzyLogic.pdb
+C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\FuzzyLogic\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\FuzzyLogic\obj\Debug\FuzzyLogic.csprojResolveAssemblyReference.cache
+C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\FuzzyLogic\obj\Debug\FuzzyLogic.dll
+C:\Users\Volodin\Documents\Visual Studio 2015\Projects\MyScoreProgects\MyScore\MyScoreTest\FuzzyLogic\obj\Debug\FuzzyLogic.pdb

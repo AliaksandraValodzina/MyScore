@@ -6,7 +6,7 @@ using LogInTest.Pages.MatchPages;
 using LogInTest.Utils.Driver;
 using LogInTest.Pages.MatchPages.Sections.TableSection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium.Support.UI;
+using FuzzyLogic;
 
 namespace LogInTest
 {
@@ -55,9 +55,9 @@ namespace LogInTest
         }
 
         [TestMethod]
-        public void GetCoef()
+        public void GetCoefForTheMatch()
         {
-            var name = "Атлетико Тукуман";
+            var name = "Лестер";
             MyScoreSoccerPage.Navigate();
             MyScoreSoccerPage.NavigateToTheMatch(name);
 
@@ -81,6 +81,42 @@ namespace LogInTest
             var x4 = tablePage.X4();
 
             var x5 = tablePage.X5();
+
+            LeagueScenarios scenarious = new LeagueScenarios();
+            var result = scenarious.PremierLeague(x1, x2, x3, x4, x5);
+        }
+
+        [TestMethod]
+        public void GetCoefForTheYesterdayMatch()
+        {
+            var name = "Борнмут";
+            MyScoreSoccerPage.Navigate();
+            MyScoreSoccerPage.PreviousDayArrow.Click();
+            MyScoreSoccerPage.NavigateToTheMatch(name);
+
+            if (MyScoreSoccerPage.LiveTub.Displayed)
+            {
+                MyScoreSoccerPage.SwitchToLast();
+            }
+
+            var matchPage = new MatchPage(driver);
+
+            matchPage.LiveCentreSection.LineUpsTab.Click();
+
+            var x1 = matchPage.LiveCentreSection.MatchReviewSection.DifferenceInLossesOfLeadingPlayers();
+
+            matchPage.TableTab.Click();
+            var tablePage = new TableSection(driver);
+            var x2 = tablePage.X2();
+
+            var x3 = tablePage.X3();
+
+            var x4 = tablePage.X4();
+
+            var x5 = tablePage.X5();
+
+            LeagueScenarios scenarious = new LeagueScenarios();
+            var result = scenarious.PremierLeague(x1, x2, x3, x4, x5);
         }
     }
 }

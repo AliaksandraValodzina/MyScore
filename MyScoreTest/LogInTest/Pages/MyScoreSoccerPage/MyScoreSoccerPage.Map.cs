@@ -13,7 +13,7 @@ namespace LogInTest.Pages.SignUpPage
         [FindsBy(How = How.CssSelector, Using = ".table-main .soccer thead .tournament_part")]
         public IList<IWebElement> LeagueListsNames { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = ".table-main .soccer tbody .team-home")]
+        [FindsBy(How = How.CssSelector, Using = "span.padr")]
         public IList<IWebElement> HomeTeamNames { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".table-main .soccer tbody .team-away")]
@@ -22,6 +22,7 @@ namespace LogInTest.Pages.SignUpPage
         [FindsBy(How = How.CssSelector, Using = ".head_aa .icons span")]
         public IList<IWebElement> LeagueCheckbox { get; set; }
 
-        // public IList<Element> LeagueCheckbox => driver.FindElements(By.CssSelector(".head_aa .icons span"));
+        [FindsBy(How = How.CssSelector, Using = "#ifmenu-calendar .yesterday")]
+        public IWebElement PreviousDayArrow { get; set; }
     }
 }

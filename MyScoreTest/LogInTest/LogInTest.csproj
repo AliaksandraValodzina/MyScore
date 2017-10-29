@@ -66,7 +66,6 @@
     <Compile Include="Utils\Common\Base.cs" />
     <Compile Include="Utils\Driver\DriverSetup.cs" />
     <Compile Include="Utils\Elements\Element.cs" />
-    <Compile Include="Utils\Elements\Interfaces\IElement.cs" />
     <Compile Include="Utils\Scenarios\WriteToFileScenarios.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +101,12 @@
       <HintPath>..\packages\Selenium.Support.3.6.0\lib\net45\WebDriver.Support.dll</HintPath>
       <Private>True</Private>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FuzzyLogic\FuzzyLogic.csproj">
+      <Project>{fd784506-ef2a-483a-88c1-2820c83f260f}</Project>
+      <Name>FuzzyLogic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -14,7 +14,7 @@ namespace LogInTest.Pages.SignUpPage
 
         public void NavigateToTheMatch(string commandName)
         {
-            HomeTeamNames.FirstOrDefault(x => x.Text.Equals(commandName)).Click();
+            HomeTeamNames.FirstOrDefault(x => x.Text.Contains(commandName)).Click();
         }
 
         public void SelectAllMatchesOnThePage()
