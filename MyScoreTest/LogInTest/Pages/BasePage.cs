@@ -16,7 +16,7 @@ namespace LogInTest.Pages
         public BasePage(IWebDriver driver)
         {
             this.driver = driver;
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
         }
 
         public void Navigate() => driver.Navigate().GoToUrl(url);

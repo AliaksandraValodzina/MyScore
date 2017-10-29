@@ -57,7 +57,7 @@ namespace LogInTest
         [TestMethod]
         public void GetCoef()
         {
-            var name = "Манчестер Юнайтед";
+            var name = "Атлетико Тукуман";
             MyScoreSoccerPage.Navigate();
             MyScoreSoccerPage.NavigateToTheMatch(name);
 

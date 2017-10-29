@@ -18,7 +18,7 @@ namespace LogInTest.Pages.MatchPages.Sections.TableSection
         public int PointsTotalIn5Mathes(string name)
         {
             var rows = TableRows.ToList();
-            var row = rows.First(x => x.FindElement(By.CssSelector(".team_name_span a")).Text.Equals(name));
+            var row = rows.First(x => x.FindElement(By.CssSelector(".team_name_span a")).Text.Contains(name));
             var games = row.FindElements(By.CssSelector(".col_form div a"))
                 .Select(x => x.GetAttribute("title")).ToList();
             int points = 0;
@@ -65,8 +65,8 @@ namespace LogInTest.Pages.MatchPages.Sections.TableSection
         /// </summary>
         public int X2()
         {
-            var homePoints = PointsTotalIn5Mathes(HomeTeamName.Text);
-            var awayPoints = PointsTotalIn5Mathes(AwayTeamName.Text);
+            var homePoints = PointsTotalIn5Mathes(HomeTeamName.Text.Trim());
+            var awayPoints = PointsTotalIn5Mathes(AwayTeamName.Text.Trim());
             var x2 = homePoints - awayPoints;
 
             return x2;
@@ -77,8 +77,8 @@ namespace LogInTest.Pages.MatchPages.Sections.TableSection
         /// </summary>
         public int X3()
         {
-            var homeRank = CommandRank(HomeTeamName.Text);
-            var awayRank = CommandRank(AwayTeamName.Text);
+            var homeRank = CommandRank(HomeTeamName.Text.Trim());
+            var awayRank = CommandRank(AwayTeamName.Text.Trim());
             var x3 = homeRank - awayRank;
 
             return x3;
@@ -90,7 +90,7 @@ namespace LogInTest.Pages.MatchPages.Sections.TableSection
         public int CommandRank(string name)
         {
             var rows = TableRows.ToList();
-            var row = rows.First(x => x.FindElement(By.CssSelector(".team_name_span a")).Text.Equals(name));
+            var row = rows.First(x => x.FindElement(By.CssSelector(".team_name_span a")).Text.Contains(name));
             var rank = row.FindElement(By.CssSelector(".rank")).Text.Trim('.');
 
             return Int32.Parse(rank);
@@ -101,15 +101,13 @@ namespace LogInTest.Pages.MatchPages.Sections.TableSection
         /// </summary>
         public decimal X4()
         {
-            TableSubtub.Click();
-            wait.Until(drv => drv.FindElement(By.CssSelector("#tabitem-table-home")));
             HomeSubtub.Click();
-            var homeTotalPoints = TotalPoints(HomeTeamName.Text);
-            var homeGamesNumber = GamesNumber(HomeTeamName.Text);
+            var homeTotalPoints = TotalPoints(HomeTeamName.Text.Trim());
+            var homeGamesNumber = GamesNumber(HomeTeamName.Text.Trim());
 
             AwaySubtub.Click();
-            var awayTotalPoints = TotalPoints(AwayTeamName.Text);
-            var awayGamesNumber = GamesNumber(AwayTeamName.Text);
+            var awayTotalPoints = TotalPoints(AwayTeamName.Text.Trim());
+            var awayGamesNumber = GamesNumber(AwayTeamName.Text.Trim());
 
             var x4 = homeTotalPoints/homeGamesNumber - awayTotalPoints/awayGamesNumber;
 
@@ -121,8 +119,10 @@ namespace LogInTest.Pages.MatchPages.Sections.TableSection
         /// </summary>
         public decimal TotalPoints(string name)
         {
-            var rows = TableRows.ToList();
-            var row = rows.First(x => x.FindElement(By.CssSelector(".participant_name  a")).Text.Equals(name));
+            // var rows = TableRows;
+            wait.Until(drv => drv.FindElements(By.CssSelector(".stats-table-container tbody tr")).Any(x => x.Enabled));
+            var rows = driver.FindElements(By.CssSelector(".stats-table-container .team_name_span a"));
+            var row = rows.First(y => y.Enabled && y.Text.Contains(name));
             var points = row.FindElements(By.CssSelector(".goals"))[1].Text;
 
             return Decimal.Parse(points);
@@ -133,8 +133,7 @@ namespace LogInTest.Pages.MatchPages.Sections.TableSection
         /// </summary>
         public decimal GamesNumber(string name)
         {
-            var rows = TableRows.ToList();
-            var row = rows.First(x => x.FindElement(By.CssSelector(".team_name_span a")).Text.Equals(name));
+            var row = driver.FindElements(By.CssSelector(".stats-table-container tbody tr")).First(y => y.Text.Contains(name));
             var points = row.FindElement(By.CssSelector(".matches_played")).Text;
 
             return Decimal.Parse(points);
@@ -146,10 +145,10 @@ namespace LogInTest.Pages.MatchPages.Sections.TableSection
         public decimal X5()
         {
             HomeSubtub.Click();
-            var homeDifferenceGoals = DifferenceScoredAndMissedGoals(HomeTeamName.Text);
+            var homeDifferenceGoals = DifferenceScoredAndMissedGoals(HomeTeamName.Text.Trim());
 
             AwaySubtub.Click();
-            var awayDifferenceGoals = DifferenceScoredAndMissedGoals(AwayTeamName.Text);
+            var awayDifferenceGoals = DifferenceScoredAndMissedGoals(AwayTeamName.Text.Trim());
 
             var x5 = homeDifferenceGoals + awayDifferenceGoals;
 
