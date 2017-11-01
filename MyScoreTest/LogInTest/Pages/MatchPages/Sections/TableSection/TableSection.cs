@@ -123,7 +123,7 @@ namespace LogInTest.Pages.MatchPages.Sections.TableSection
             // var rows = TableRows;
             wait.Until(drv => drv.FindElements(By.CssSelector(".stats-table-container tbody tr")).Any(x => x.Enabled));
             var rows = driver.FindElements(By.CssSelector(".stats-table-container tbody tr"));
-            var row = rows.First(y => y.Enabled && y.Text.Contains(name));
+            var row = rows.First(y => y.Enabled && y.FindElement(By.CssSelector(".team_name_span a")).Text.Contains(name));
             var points = row.FindElements(By.CssSelector(".goals"))[1].Text;
 
             return Double.Parse(points);

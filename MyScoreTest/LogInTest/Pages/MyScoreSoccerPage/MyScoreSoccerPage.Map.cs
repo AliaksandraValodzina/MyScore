@@ -24,5 +24,8 @@ namespace LogInTest.Pages.SignUpPage
 
         [FindsBy(How = How.CssSelector, Using = "#ifmenu-calendar .yesterday")]
         public IWebElement PreviousDayArrow { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = "#ifmenu-calendar .tomorrow")]
+        public IWebElement NextDayArrow { get; set; }
     }
 }
