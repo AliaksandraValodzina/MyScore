@@ -17,6 +17,7 @@ namespace LogInTest.Pages
         {
             this.driver = driver;
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
         }
 
         public void Navigate() => driver.Navigate().GoToUrl(url);

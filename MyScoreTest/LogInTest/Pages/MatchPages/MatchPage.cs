@@ -10,8 +10,11 @@ namespace LogInTest.Pages.MatchPages
         {
             PageFactory.InitElements(driver, this);
             LiveCentreSection = new LiveCentreSection(driver);
+            CoefSection = new CoefSection(driver);
         }
 
         public LiveCentreSection LiveCentreSection { get; private set; }
+
+        public CoefSection CoefSection { get; private set; }
     }
 }

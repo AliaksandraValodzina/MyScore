@@ -12,6 +12,12 @@ namespace LogInTest.Pages.MatchPages
         public IWebElement TableTab { get; set; }
 
         /// <summary>
+        /// Coefs Tab element.
+        /// </summary>
+        [FindsBy(How = How.CssSelector, Using = "#a-match-odds-comparison")]
+        public IWebElement CoefTab { get; set; }
+
+        /// <summary>
         /// Home Team Name element.
         /// </summary>
         [FindsBy(How = How.CssSelector, Using = ".tname-home span a")]

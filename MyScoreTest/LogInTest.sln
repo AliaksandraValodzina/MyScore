@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogInTest", "LogInTest\LogI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuzzyLogic", "FuzzyLogic\FuzzyLogic.csproj", "{FD784506-EF2A-483A-88C1-2820C83F260F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTMLLogger", "..\..\..\Downloaded\Custom logger for MSBuild (HTML Logger)\C#\HTMLLogger\HTMLLogger.csproj", "{958EA9CA-F998-48D5-8115-084D305E860D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{FD784506-EF2A-483A-88C1-2820C83F260F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD784506-EF2A-483A-88C1-2820C83F260F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD784506-EF2A-483A-88C1-2820C83F260F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{958EA9CA-F998-48D5-8115-084D305E860D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{958EA9CA-F998-48D5-8115-084D305E860D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{958EA9CA-F998-48D5-8115-084D305E860D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{958EA9CA-F998-48D5-8115-084D305E860D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

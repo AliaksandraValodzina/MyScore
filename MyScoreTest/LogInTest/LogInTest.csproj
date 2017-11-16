@@ -50,6 +50,8 @@
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\MatchPages\MatchPage.cs" />
     <Compile Include="Pages\MatchPages\MatchPage.Map.cs" />
+    <Compile Include="Pages\MatchPages\Sections\CoefSections\CoefSection.cs" />
+    <Compile Include="Pages\MatchPages\Sections\CoefSections\CoefSection.Map.cs" />
     <Compile Include="Pages\MatchPages\Sections\LiveCentreSections\LiveCentreSection.Asserter.cs" />
     <Compile Include="Pages\MatchPages\Sections\LiveCentreSections\LiveCentreSection.cs" />
     <Compile Include="Pages\MatchPages\Sections\LiveCentreSections\LiveCentreSection.Map.cs" />

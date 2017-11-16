@@ -102,7 +102,11 @@ namespace LogInTest.Pages.MatchPages.Sections.TableSection
         public double X4()
         {
             TableSubtub.Click();
+            wait.Until(x => x.FindElement(By.CssSelector(".ifmenu #tabitem-table-home")));
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
             HomeSubtub.Click();
+            wait.Until(x => x.FindElement(By.CssSelector(".tname-home span a")));
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             var homeTotalPoints = TotalPoints(HomeTeamName.Text.Trim());
             var homeGamesNumber = GamesNumber(HomeTeamName.Text.Trim());
 
@@ -120,10 +124,14 @@ namespace LogInTest.Pages.MatchPages.Sections.TableSection
         /// </summary>
         public double TotalPoints(string name)
         {
-            // var rows = TableRows;
-            wait.Until(drv => drv.FindElements(By.CssSelector(".stats-table-container tbody tr")).Any(x => x.Enabled));
-            var rows = driver.FindElements(By.CssSelector(".stats-table-container tbody tr"));
-            var row = rows.First(y => y.Enabled && y.FindElement(By.CssSelector(".team_name_span a")).Text.Contains(name));
+            var rows = TableRows;
+
+            while (rows.Count <= 25)
+            {
+                rows = TableRows;
+            }
+
+            var row = rows.First(x => x.FindElement(By.CssSelector(".team_name_span a")).Text.Contains(name));
             var points = row.FindElements(By.CssSelector(".goals"))[1].Text;
 
             return Double.Parse(points);

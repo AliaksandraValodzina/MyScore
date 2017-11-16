@@ -10,6 +10,9 @@ namespace LogInTest.Pages.SignUpPage
         [FindsBy(How = How.CssSelector, Using = ".ifmenu-live")]
         public IWebElement LiveTub { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = ".table-main .soccer")]
+        public IList<IWebElement> LeagueTable { get; set; }
+
         [FindsBy(How = How.CssSelector, Using = ".table-main .soccer thead .tournament_part")]
         public IList<IWebElement> LeagueListsNames { get; set; }
 

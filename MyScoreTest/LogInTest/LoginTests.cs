@@ -30,6 +30,45 @@ namespace LogInTest
             MyScoreSoccerPage.Quit();
         }
 
+        private string GetFyzzyCoef()
+        {
+            var matchPage = new MatchPage(driver);
+
+            var x1 = matchPage.LiveCentreSection.MatchReviewSection.DifferenceInLossesOfLeadingPlayers();
+
+            matchPage.TableTab.Click();
+            var tablePage = new TableSection(driver);
+            var x2 = tablePage.X2();
+
+            var x3 = tablePage.X3();
+
+            var x4 = tablePage.X4();
+
+            var x5 = tablePage.X5();
+
+            LeagueScenarios scenarious = new LeagueScenarios();
+            var result = scenarious.PremierLeague(x1, x2, x3, x4, x5);
+
+            return result;
+        }
+
+        private string GetCoef(string fyzzyCoef)
+        {
+            var matchPage = new MatchPage(driver);
+            matchPage.CoefTab.Click();
+            return matchPage.CoefSection.GetCoef(fyzzyCoef);
+        }
+
+        private void NavigateToTheMatch(string name)
+        {
+            MyScoreSoccerPage.NavigateToTheMatch(name);
+
+            if (MyScoreSoccerPage.LiveTub.Displayed)
+            {
+                MyScoreSoccerPage.SwitchToLast();
+            }
+        }
+
         [TestMethod]
         public void GetShotsForCommandMatch()
         {
@@ -57,97 +96,52 @@ namespace LogInTest
         [TestMethod]
         public void GetCoefForTheMatch()
         {
-            var name = "Лестер";
-            MyScoreSoccerPage.Navigate();
-            MyScoreSoccerPage.NavigateToTheMatch(name);
-
-            if (MyScoreSoccerPage.LiveTub.Displayed)
-            {
-                MyScoreSoccerPage.SwitchToLast();
-            }
-
-            var matchPage = new MatchPage(driver);
-
-            matchPage.LiveCentreSection.LineUpsTab.Click();
-            
-            var x1 = matchPage.LiveCentreSection.MatchReviewSection.DifferenceInLossesOfLeadingPlayers();
-
-            matchPage.TableTab.Click();
-            var tablePage = new TableSection(driver);
-            var x2 = tablePage.X2();
-
-            var x3 = tablePage.X3();
-
-            var x4 = tablePage.X4();
-
-            var x5 = tablePage.X5();
-
-            LeagueScenarios scenarious = new LeagueScenarios();
-            var result = scenarious.PremierLeague(x1, x2, x3, x4, x5);
+            var name = "Кадис";
+            NavigateToTheMatch(name);
+            var coef = GetFyzzyCoef();
         }
+
+        [TestMethod]
+        public void GetCoefForTheLeague()
+        {
+            var league = "Премьер-лига";
+            MyScoreSoccerPage.Navigate();
+            MyScoreSoccerPage.NextDayArrow.Click();
+            MyScoreSoccerPage.NextDayArrow.Click();
+            var commands = MyScoreSoccerPage.HomeCommandsForLeague(league);
+
+            foreach(var command in commands)
+            {
+                NavigateToTheMatch(command.Text);
+                var fyzzyCoef = GetFyzzyCoef();
+                var coef = GetCoef(fyzzyCoef);
+                MyScoreSoccerPage.SwitchToLastAndClose();
+            }
+        }
+
 
         [TestMethod]
         public void GetCoefForThePreviousMatch()
         {
-            var name = "Бёрнли";
+            var name = "Хорн";
             MyScoreSoccerPage.Navigate();
             MyScoreSoccerPage.PreviousDayArrow.Click();
-            MyScoreSoccerPage.NavigateToTheMatch(name);
+            var commands = MyScoreSoccerPage.HomeCommandsForLeague(name);
+            // matchPage.LiveCentreSection.LineUpsTab.Click();
 
-            if (MyScoreSoccerPage.LiveTub.Displayed)
-            {
-                MyScoreSoccerPage.SwitchToLast();
-            }
-
-            var matchPage = new MatchPage(driver);
-
-            matchPage.LiveCentreSection.LineUpsTab.Click();
-
-            var x1 = matchPage.LiveCentreSection.MatchReviewSection.DifferenceInLossesOfLeadingPlayers();
-
-            matchPage.TableTab.Click();
-            var tablePage = new TableSection(driver);
-            var x2 = tablePage.X2();
-
-            var x3 = tablePage.X3();
-
-            var x4 = tablePage.X4();
-
-            var x5 = tablePage.X5();
-
-            LeagueScenarios scenarious = new LeagueScenarios();
-            var result = scenarious.PremierLeague(x1, x2, x3, x4, x5);
+            var coef = GetFyzzyCoef();
         }
 
         [TestMethod]
         public void GetCoefForTheNextMatch()
         {
-            var name = "Бёрнли";
+            var name = "Хорн";
             MyScoreSoccerPage.Navigate();
             MyScoreSoccerPage.NextDayArrow.Click();
-            MyScoreSoccerPage.NavigateToTheMatch(name);
+            MyScoreSoccerPage.NextDayArrow.Click();
+            var commands = MyScoreSoccerPage.HomeCommandsForLeague(name);
 
-            if (MyScoreSoccerPage.LiveTub.Displayed)
-            {
-                MyScoreSoccerPage.SwitchToLast();
-            }
-
-            var matchPage = new MatchPage(driver);
-
-            var x1 = matchPage.LiveCentreSection.MatchReviewSection.DifferenceInLossesOfLeadingPlayers();
-
-            matchPage.TableTab.Click();
-            var tablePage = new TableSection(driver);
-            var x2 = tablePage.X2();
-
-            var x3 = tablePage.X3();
-
-            var x4 = tablePage.X4();
-
-            var x5 = tablePage.X5();
-
-            LeagueScenarios scenarious = new LeagueScenarios();
-            var result = scenarious.PremierLeague(x1, x2, x3, x4, x5);
+            var coef = GetFyzzyCoef();
         }
     }
 }
